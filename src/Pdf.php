@@ -52,7 +52,7 @@ class Pdf
 
     public function text() : string
     {
-        $process = new Process(array_merge([$this->binPath], $this->options, [$this->pdf, '-']));
+        $process = new Process(array_merge([$this->binPath], $this->options, [$this->pdf, '-']), null, null, null, 6000);
         $process->run();
         if (!$process->isSuccessful()) {
             throw new CouldNotExtractText($process);
